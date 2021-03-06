@@ -28,7 +28,8 @@ hp = 75.5f; // единицы здоровья выражены значение
 using namespace std;
 
 void calculateTasks() {
-    int x = 4; x += 4;
+    int x = 4;
+    x += 4;
     cout << "x: " << x << endl;
 
     int answer = 277 + 5 * 4 / 2 + 20;
@@ -56,7 +57,62 @@ void variablesTasks() {
     cout << x << endl;
 }
 
+struct MyShip {
+
+//public: myShip() = default;
+
+    long serialID = 0001L;
+    string name = "Xenta";
+    double hull = 100.0;
+    int maxSpeed = 250;
+    float jumpRange = 15.3;
+
+public:
+    void showShipInfo() const {
+        cout << "Ship Name: " << name
+             << "\nHull Integrity: " << hull
+             << "\nJump Range: " << jumpRange
+             << endl;
+    }
+
+};
+
+struct Vector {
+    float x, y, z; // положения x, y и z все типа float }; // КОНЕЦ ОПРЕДЕЛЕНИЯ ОБЪЕКТА Vector
+
+    void setPosition(float x, float y, float z) {
+        this->x = x;
+        this->y = y;
+        this->z = z;
+    }
+
+    void showVector() {
+        cout << "A 3-space vector at " << x << ", " << y << ", " << z << endl;
+    }
+};
+
+struct Player {
+    string name;
+    int hp;
+    Vector position;
+};
+
+void typesTasks() {
+
+    MyShip ship{};
+    ship.showShipInfo();
+    //cout << "MyShip: " << ship << endl;
+
+    Vector vector{}; // Создаём экземпляр Vector названный vector
+    vector.x = 20, vector.y = 30, vector.z = 40; // присваиваем значения
+    cout << "A 3-space vector at " << vector.x << ", " << vector.y << ", " << vector.z << endl;
+    vector.setPosition(2.445, 54.643, -6.466);
+    vector.showVector();
+}
+
 int main() {
+
+    typesTasks();
 
     calculateTasks();
 
