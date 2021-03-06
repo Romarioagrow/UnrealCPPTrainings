@@ -58,8 +58,7 @@ void variablesTasks() {
 }
 
 struct MyShip {
-
-//public: myShip() = default;
+///public: myShip() = default;
 
     long serialID = 0001L;
     string name = "Xenta";
@@ -74,7 +73,6 @@ public:
              << "\nJump Range: " << jumpRange
              << endl;
     }
-
 };
 
 struct Vector {
@@ -95,19 +93,66 @@ struct Player {
     string name;
     int hp;
     Vector position;
+
+    void showPosition() {
+        /// position.showVector();
+        cout << "Current Player Position: " << position.x << ", " << position.y << ", " << position.z << endl;
+    }
+
+    void showPlayerInfo() {
+        cout << "Player Name: " << name
+        << "\nPlayer HP: " << hp << endl;
+    }
 };
 
 void typesTasks() {
 
     MyShip ship{};
     ship.showShipInfo();
-    //cout << "MyShip: " << ship << endl;
 
     Vector vector{}; // Создаём экземпляр Vector названный vector
     vector.x = 20, vector.y = 30, vector.z = 40; // присваиваем значения
     cout << "A 3-space vector at " << vector.x << ", " << vector.y << ", " << vector.z << endl;
     vector.setPosition(2.445, 54.643, -6.466);
     vector.showVector();
+
+    Player myPlayer{};
+    myPlayer.position.setPosition(1.5, 2.5, 3.5); /// Вложенность норм?
+    myPlayer.showPosition();
+
+    myPlayer.name = "Koksus";
+    myPlayer.hp = 100.f;
+    myPlayer.position.x = myPlayer.position.y = myPlayer.position.z = 0;
+    myPlayer.showPosition();
+    myPlayer.showPlayerInfo();
+
+    Player* ptrMe;
+    ptrMe = &myPlayer;
+    ptrMe->hp -= 33;
+    ptrMe->name = "John";
+    myPlayer.showPlayerInfo();
+    cout << &myPlayer << endl;
+    cout << &ptrMe << endl;
+
+    int *px; px = reinterpret_cast<int *>(&myPlayer);
+    cout << px << endl;
+
+    int int1 = 228;
+    int *intX = &int1;
+    cout << "*intX: " << intX << endl;
+    cout << "*intX: " << *intX << endl;
+
+    int *xxxx = nullptr;
+    cout << xxxx << endl;
+
+    int fuelAmount;
+    cout << "Input fuel amount:" << endl;
+    cin >> fuelAmount;
+    cout << "Fueling " << fuelAmount << " Liters!" << endl;
+    printf("Fueling %d liters...\n", fuelAmount);
+
+    string someString = "C++ with Unreal Engine Trainings";
+    printf("Here is my text: %s\n", someString.c_str());
 }
 
 int main() {
