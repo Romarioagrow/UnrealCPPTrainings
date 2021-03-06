@@ -1,8 +1,3 @@
-
-
-
-
-
 /*#include <iostream> // Импорт библиотеки ввода-вывода using namespace std; // позволяет нам писать оператор cout
 // вместо std::cout
 int main() {
@@ -10,7 +5,6 @@ cout << "Hello, world" << endl;
 cout << "I am now a C++ programmer." << endl;
  return 0; // "return" to the operating sys
 }*/
-
 
 /*
  *
@@ -33,8 +27,15 @@ hp = 75.5f; // единицы здоровья выражены значение
 
 using namespace std;
 
-int main() {
+void calculateTasks() {
+    int x = 4; x += 4;
+    cout << "x: " << x << endl;
 
+    int answer = 277 + 5 * 4 / 2 + 20;
+    cout << "Answer: " << answer << endl;
+}
+
+void variablesTasks() {
     string name;
     float hpMax;
     int gold;
@@ -45,8 +46,6 @@ int main() {
 
     cout << "Keks Character Name: " << name << " Has HP: " << hpMax << " Gold: " << gold << endl;
 
-
-
     int hp = 500;
     cout << hp << endl;
 
@@ -55,9 +54,15 @@ int main() {
 
     int x = 38.87f;
     cout << x << endl;
+}
 
-    std::cout << "Hello, World!" << std::endl;
-    cout << "koks" << endl;
+int main() {
+
+    calculateTasks();
+
+    variablesTasks();
+
+    std::cout << "Hello, Keks!" << std::endl;
     cout << "****************" << endl;
     cout << "*............*.*" << endl;
     cout << "*.*.*******..*.*" << endl;
