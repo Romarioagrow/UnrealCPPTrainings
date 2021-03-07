@@ -27,6 +27,58 @@ hp = 75.5f; // единицы здоровья выражены значение
 
 using namespace std;
 
+void branchingTasks(int x, int y) {
+
+    int x1 = x; //5; // как вы знаете, мы используем один знак равно
+    int y1 = y; //4; // для присваивания...
+
+    cout << "Is x equal to y? C++ says: " << (x1 == y1) << endl; // Равны ли х и у?
+    cout << "Is x equal to y: \"" << boolalpha << (x1 == y1) << endl;
+    cout << "x больше чем y? " << (x1 > y1) << endl;
+    cout << "x больше чем ИЛИ РАВЕН y? " << (x1 >= y1) << endl;
+    cout << "x меньше чем y? " << (x1 < y1) << endl;
+    cout << "x меньше чем ИЛИ РАВЕН y? " << (x1 <= y1) << endl;
+    cout << "x не равен y? " << (x1 != y1) << endl;
+
+    bool isHungry = (x1 * y1 == 0); // можем установить это на false если не // голоден!
+    if (isHungry) {
+        cout << "Готовит перекусить..." << endl;// просто заходит внутрь { если isHungry (голоден) true {
+        cout << "Ест... " << endl;
+    } else {
+        cout << "I'm not hungry" << endl;
+    }
+    cout << "Сидит на диване..." << endl;
+
+    bool wearingSocks = (x1 * y1 / 2 > 0);
+    if (wearingSocks) {
+        cout << "Надеть носки!" << endl;
+    } else {
+        cout << "Я уже в носках!" << endl;
+    }
+
+    int intbl = (x1 > y1);
+    if (!!intbl) {
+        printf("intbl > 0\n");
+    } else {
+        printf("intbl < 0\n");
+    }
+
+    bool wearingClothes = x1 * y1 != 0; // одежда надета
+    if (wearingSocks && wearingClothes) {// Знак и && требует, чтобы ОБЕ переменные имели true {
+        cout << "Вы одеты!" << endl;
+    } else {
+        cout << "Вы ещё не одеты" << endl;
+    }
+
+    bool foundStar = x1 * y1 == 0;
+    float levelCompleteTime = 25.f, maxTimeForBonus = 60.f;
+    if (foundStar || levelCompleteTime < maxTimeForBonus) {
+        cout << "Награждаетесь бонусом!" << endl;
+    } else {
+        cout << "Никакого бонуса!" << endl;
+    }
+}
+
 void calculateTasks() {
     int x = 4;
     x += 4;
@@ -34,6 +86,7 @@ void calculateTasks() {
 
     int answer = 277 + 5 * 4 / 2 + 20;
     cout << "Answer: " << answer << endl;
+    printf("\n");
 }
 
 void variablesTasks() {
@@ -55,6 +108,7 @@ void variablesTasks() {
 
     int x = 38.87f;
     cout << x << endl;
+    printf("\n");
 }
 
 struct MyShip {
@@ -101,7 +155,7 @@ struct Player {
 
     void showPlayerInfo() {
         cout << "Player Name: " << name
-        << "\nPlayer HP: " << hp << endl;
+             << "\nPlayer HP: " << hp << endl;
     }
 };
 
@@ -126,7 +180,7 @@ void typesTasks() {
     myPlayer.showPosition();
     myPlayer.showPlayerInfo();
 
-    Player* ptrMe;
+    Player *ptrMe;
     ptrMe = &myPlayer;
     ptrMe->hp -= 33;
     ptrMe->name = "John";
@@ -134,9 +188,14 @@ void typesTasks() {
     cout << &myPlayer << endl;
     cout << &ptrMe << endl;
 
-    int *px; px = reinterpret_cast<int *>(&myPlayer);
+    int *px;
+    px = reinterpret_cast<int *>(&myPlayer);
     cout << px << endl;
 
+    printf("\n");
+}
+
+void inputsTasks() {
     int int1 = 228;
     int *intX = &int1;
     cout << "*intX: " << intX << endl;
@@ -156,6 +215,8 @@ void typesTasks() {
 }
 
 int main() {
+
+    branchingTasks(5, 2);
 
     typesTasks();
 
