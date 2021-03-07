@@ -27,6 +27,56 @@ hp = 75.5f; // единицы здоровья выражены значение
 
 using namespace std;
 
+void checkNumbers(int x, int y);
+
+void checkInputNumbers() {
+    int x, y;
+
+    cout << "Введите x:" << endl;
+    cin >> x; // Так значение будет считываться с консоли
+    cout << "Введите y:" << endl;
+    cin >> y;
+
+    checkNumbers(x, y);
+}
+
+void checkNumbers(int x, int y) {
+    string result; //= reinterpret_cast<const char *>(x == y);
+
+    if (x == y) {
+        result = " equals ";
+    } else if (x > y) {
+        result = " grater ";
+    }
+    else {
+        result = " lesser ";
+    }
+    cout << x << result << y << endl;
+}
+
+void enumItems() {
+
+    enum Item {
+        Coin, Key, Knife
+    };
+
+    //int
+
+    Item activeItem = Key;
+
+    if (activeItem == Key) {
+        cout << "Ключ с основанием в форме головы льва." << endl;
+        cout << "Вы попадаете в секретную комнату используя Ключ!" << endl;
+    } else if (activeItem == Coin) {
+        cout << "Монета проржавевшего латунного цвета. На ней изображение дамы в юбке." << endl;
+        cout << "На эту монету вы можете купить пару вещей" << endl;
+    } else if (activeItem == Knife) {
+        cout << "На этом морском еже маленькая звёздочка." << endl;
+        cout << "Возможно вы сможете обменять его на что-нибудь." << endl;
+    }
+
+}
+
 void branchingTasks(int x, int y) {
 
     int x1 = x; //5; // как вы знаете, мы используем один знак равно
@@ -215,6 +265,10 @@ void inputsTasks() {
 }
 
 int main() {
+
+    checkInputNumbers();
+
+    checkNumbers(2, 4);
 
     branchingTasks(5, 2);
 
